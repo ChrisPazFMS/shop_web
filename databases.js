@@ -39,41 +39,35 @@ table_computer_array.push(new Article(5, "RTX-567-PS", "cortex", 8699));
 
 const phone_table = table_phone_array.map(items => {
     return `
-    <div>
     <div class="articles_stock" id="phone_table${items.getId()}">
-    <label for="stockId" class="stockId"><p>${items.getId()}</p></label>
+        <label for="stockId" class="stockId"><p>${items.getId()}</p></label>
         <label for="stockName" class="stockName"><p>${items.getName()}</p></label>
         <label for="stockBrand" class="stockBrand"><p>${items.getBrand()}</p></label>
         <label for="stockPrice" class="stockPrice"><p>${items.getPrice()}</p></label>
         <input type="number" id="stockQuantite${items.getId()}" name="stockQuantite" min="0" max="10" class="stockQuantite">
-        </div>
-    `
+    </div>`
 })
 
 const tablet_table = table_tablet_array.map(items => {
     return `
-    <div>
     <div class="articles_stock" id="tablet_table${items.getId()}">
-    <label for="stockId" class="stockId"><p>${items.getId()}</p></label>
+        <label for="stockId" class="stockId"><p>${items.getId()}</p></label>
         <label for="stockName" class="stockName"><p>${items.getName()}</p></label>
         <label for="stockBrand" class="stockBrand"><p>${items.getBrand()}</p></label>
         <label for="stockPrice" class="stockPrice"><p>${items.getPrice()}</p></label>
         <input type="number" id="stockQuantite${items.getId()}" name="stockQuantite" min="0" max="10" class="stockQuantite">
-        </div>
-    `
+    </div>`
 })
 
 const computer_table = table_computer_array.map(items => {
     return `
-    <div>
     <div class="articles_stock" id="computer_table${items.getId()}">
-    <label for="stockId" class="stockId"><p>${items.getId()}</p></label>
+        <label for="stockId" class="stockId"><p>${items.getId()}</p></label>
         <label for="stockName" class="stockName"><p>${items.getName()}</p></label>
         <label for="stockBrand" class="stockBrand"><p>${items.getBrand()}</p></label>
         <label for="stockPrice" class="stockPrice"><p>${items.getPrice()}</p></label>
         <input type="number" id="stockQuantite${items.getId()}" name="stockQuantite" min="0" max="10" class="stockQuantite">
-        </div>
-    `
+    </div>`
 })
 
 export { phone_table, tablet_table, computer_table }
