@@ -120,11 +120,27 @@ div>.articles_stock:nth-child(2n+1) {
 }
 
 #button_card {
-    margin: 2em;
+    margin: 1em 0 0 27.2em;
     width: 8em;
     height: 3em;
-    background-color: #337ab7;
-    color: white;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    font-family: 'Pacifico', cursive;
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #3498DB;
+    border-bottom: 5px solid #2980B9;
+    text-shadow: 0px -2px #2980B9;
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+}
+
+#button_card:hover {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    border-bottom: 1px solid;
 }
 
 
