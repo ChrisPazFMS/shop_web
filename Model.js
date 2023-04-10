@@ -1,10 +1,11 @@
 class Article {
 
-    constructor(id, name, brand, price) {
+    constructor(id, name, brand, price, quantite) {
         this.id = id;
         this.name = name;
         this.brand = brand;
         this.price = price;
+        this.quantite = quantite;
     }
 
     getId() {
@@ -36,8 +37,23 @@ class Article {
         this.price = price;
     }
 
+    getQuantite() {
+        return this.quantite
+    }
+
+    setQuantite(quantite) {
+        this.quantite = quantite;
+    }
+
     toString() {
-        return "Id : " + this.getId() + " Name : " + this.getName() + " Brand : " + this.getBrand() + " Price : " + this.getPrice()
+        if (this.getQuantite() == null) {
+            console.log("sans quantite");
+            return "Id : " + this.getId() + " Name : " + this.getName() + " Brand : " + this.getBrand() + " Price : " + this.getPrice();
+        } else {
+            console.log("avec quantite");
+            return "Id : " + this.getId() + " Name : " + this.getName() + " Brand : " + this.getBrand() + " Price : " + this.getPrice() + " Quantite : " + this.getQuantite();
+
+        }
     }
 }
 

@@ -1,22 +1,98 @@
-import { table_phone, table_tablet, table_computer } from './table.js';
+import { table_phone, table_tablet, table_computer, card } from './table.js';
 import { phone_table, tablet_table, computer_table } from './databases.js';
+import { Article } from './Model.js';
+
+
 
 export default function() {
 
-    // document.querySelectorAll("#shop").forEach(buttonCard => buttonCard.addEventListener('click', e => {
-    //     console.log(e.target);
-    //     console.log(e.target.value);
+    let user_card = [];
 
-    // }));
+    document.addEventListener('click', e => {
+        const element_article = e.target;
+
+
+        if (e.target.classList == "stockQuantite") {
+
+            const article = element_article.parentNode;
+            const id_article = element_article.parentNode.id;
+            const name_article = article.childNodes[3].textContent;
+            const brand_article = article.childNodes[5].textContent;
+            const price_article = article.childNodes[7].textContent;
+            const quantite_article = element_article.value;
+
+
+            console.log("Article Id : " + id_article);
+            console.log("Article name : " + name_article);
+            console.log("Article brand : " + brand_article);
+            console.log("Article price : " + price_article);
+            console.log("Article quantite : " + quantite_article);
+
+
+            user_card.push(new Article(id_article, name_article, brand_article, price_article, quantite_article));
+
+            // for (let index = 0; index < user_card.length; index++) {
+            //     const element = user_card[index];
+
+            //     console.log("Article : " + element)
+            // }
+
+        };
+
+    });
+
+    function list_card() {
+        for (let index = 0; index < user_card.length; index++) {
+            const element = user_card[index];
+            return `
+            <div class="articles_stock" id="article_card_user">
+                    <label for="stockName" class="stockName"><p>${element.getName()}</p></label>
+                    <label for="stockBrand" class="stockBrand"><p>${element.getBrand()}</p></label>
+                    <label for="stockPrice" class="stockPrice"><p>${element.getPrice()}</p></label>
+                    <label for="stockPrice" class="stockQuantite" id="stockQuantite"><p>${element.getQuantite()}</p></label>
+            </div>`
+        }
+    }
 
     all_click.addEventListener("click", all_item_function, false);
     smartPhone_click.addEventListener("click", phone_item_function, false);
     tablet_click.addEventListener("click", tablet_item_function, false);
     pc_click.addEventListener("click", computer_item_function, false);
 
+
+    //Ne fonctionne pas !
+    // function list_card() {
+    //     user_card.map(items => {
+    //         return `
+    //         <div class="articles_stock" id="list_card_user">
+    //         <label for="stockName" class="stockName"><p>${items.getName()}</p></label>
+    //         <label for="stockBrand" class="stockBrand"><p>${items.getBrand()}</p></label>
+    //         <label for="stockPrice" class="stockPrice"><p>${items.getPrice()}</p></label>
+    //         <label for="stockPrice" class="stockQuantite" id="stockQuantite"><p></p></label>
+    //         </div>`
+    //     })
+
+    // }
+
     function validate_items_for_basket() {
-        console.log("Click : " + !!button_card);
+        if (!document.querySelector("#card_div")) {
+            let card_user = document.createElement("div");
+            card_user.id = `card_div`;
+            shop.append(card_user);
+            card_user.innerHTML = card + list_card();
+            create_button_card_on_click(card_user, validate_items_for_basket);
+        } else {
+            card_div.remove();
+            let card_user = document.createElement("div");
+            card_user.id = `card_div`;
+            shop.append(card_user);
+            card_user.innerHTML = card + list_card();
+            create_button_card_on_click(card_user, validate_items_for_basket);
+        }
     }
+
+
+
 
     function all_item_function() {
         if (!document.querySelector("#table_div")) {

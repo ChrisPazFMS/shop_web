@@ -64,4 +64,16 @@ let table_computer = `
     </div>
 </form>`
 
-export { naveBar, article, table_phone, table_tablet, table_computer };
+let card = ` 
+<!-- Liste des téléphones en stock -->
+<form action="" method="post" id="card_user_items">
+    <div class="articles_stock background_color">
+        <label for="stockName" class="stockName"><p class="StockName">NAME</p></label>
+        <label for="stockBrand" class="stockBrand"><p>BRAND</p></label>
+        <label for="stockPrice" class="stockPrice"><p>PRICE</p></label>
+        <label for="stockQuantite" class="stockQuantite"><p>QUANTITE</p></label>
+        <span class="border_form"></span>
+    </div>
+</form>`
+
+export { naveBar, article, table_phone, table_tablet, table_computer, card };
