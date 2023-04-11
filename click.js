@@ -44,7 +44,7 @@ export default function() {
     function list_card() {
         for (let index = 0; index < user_card.length; index++) {
             const element = user_card[index];
-            return `
+            card_user_items.innerHTML += `
             <div class="articles_stock" id="article_card_user">
                     <label for="stockName" class="stockName"><p>${element.getName()}</p></label>
                     <label for="stockBrand" class="stockBrand"><p>${element.getBrand()}</p></label>
@@ -79,7 +79,8 @@ export default function() {
             let card_user = document.createElement("div");
             card_user.id = `card_div`;
             shop.append(card_user);
-            card_user.innerHTML = card + list_card();
+            card_user.innerHTML = card;
+            list_card()
             create_button_card_on_click(card_user, validate_items_for_basket);
         } else {
             card_div.remove();
